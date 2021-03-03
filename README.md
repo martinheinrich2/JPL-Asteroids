@@ -67,7 +67,7 @@ ggplot(data = ast_df) + geom_point(mapping = aes(x = a, y = e), shape = ".", col
   scale_x_log10() + labs (x = "semi-major axis (a) in AU", y = "eccentricity (e)")
 ```
 
-![](README_figs/README-log-scale plot1-1.png)<!-- -->
+![](README_figs/README-log-scale_plot1-1.png)<!-- -->
 
 The x-axis is logarithmic in astronomical units (AU).
 Next we look at the range of 0 - 6 AU semi-major axis by applying a limit with the **xlim()** option.
@@ -77,7 +77,7 @@ ggplot(data = ast_df) + geom_point(mapping = aes(x = a, y = e), shape = ".", col
   xlim(c(0,6)) + labs (x = "semi-major axis (a) in AU", y = "eccentricity (e)")
 ```
 
-![](README_figs/README-plot e vs a-1.png)<!-- -->
+![](README_figs/README-plot_e_vs_a-1.png)<!-- -->
 
 There are some 'artefacts' which appear as striped patterns directed to the right. Some of them might be objects with only a few observations. The algorithm that calculates the orbital parameters could to make some assumptions which result in these striped patterns. We can test this idea and make them visible by selecting objects with less than 20 observations and plotting them in red.
 
@@ -88,7 +88,7 @@ ggplot(data = ast_df) + geom_point(mapping = aes(x = a, y = e), shape = ".", col
   labs (x = "semi-major axis (a) in AU", y = "eccentricity (e)")
 ```
 
-![](README_figs/README-plot artefacts-1.png)<!-- -->
+![](README_figs/README-plot_artefacts-1.png)<!-- -->
 
 This seems to prove the idea. Next we filter out potentially unreliable orbital parameters by removing all objects with less than 20 observations and making a new plot.
 
@@ -99,7 +99,7 @@ ggplot(data = ast_df1) + geom_point(mapping = aes(x = a, y = e), shape = ".", co
   xlim(c(0,6)) + labs (x = "semi-major axis (a) in AU", y = "eccentricity (e)")
 ```
 
-![](README_figs/README-plot without artefacts-1.png)<!-- -->
+![](README_figs/README-plot_without_artefacts-1.png)<!-- -->
 
 There is still a striped pattern starting at 1 AU and 0 eccentricity directed to the right. This could be connected to how we detect asteroids. If asteroids are close to the Earth's orbit, we are more likely to detect them.
 We can use the aphelion and perihelion (https://en.wikipedia.org/wiki/Apsis) data of Earth and other planets and calculate the eccentricity at each semi-major axis. In a plot we can examine the higher asteroid density starting at 1 AU and extending to 2 AU in the form of an arc. Remembering that $aphelion = a(1+e)$ and $perihelion = a(1-e)$ we rearrange to calculate the eccentricities for the planets. We also plot the eccentricities of Mercury, Venus, Earth, Mars and Jupiter.
@@ -129,7 +129,7 @@ ggplot() + geom_point(ast_df1, mapping = aes(x = a, y = e), shape = ".", color =
   labs (x = "semi-major axis (a) in AU", y = "eccentricity (e)")
 ```
 
-![](README_figs/README-aphelion and perihelion-1.png)<!-- -->
+![](README_figs/README-aphelion_and_perihelion-1.png)<!-- -->
 
 Now it is obvious why the density of asteroids is higher close to the aphelion distance of the Earth (red line on the right). It is easier to detect asteroids near the Earth's orbit. The perihelion distance is the red line on the left. The other lines show the aphelion and perihelion distance of Mars (green) and Jupiter (purple). We also see objects crossing the aphelion and perihelion distance of planets.
 Asteroids in general have larger eccentricities than planets (even larger than Mercury = 0.205, also see https://nssdc.gsfc.nasa.gov/planetary/factsheet/). Collisions between asteroids and the Yarkowvsky effect can alter the orbit of asteroids in the long term (https://en.wikipedia.org/wiki/Yarkovsky_effect).
@@ -186,7 +186,7 @@ ggplot() + geom_point(ast_df1, mapping = aes(x = a, y = e), shape = ".", color =
   labs (x = "semi-major axis (a) in AU", y = "eccentricity (e)")
 ```
 
-![](README_figs/README-neo and pha-1.png)<!-- -->
+![](README_figs/README-neo_and_pha-1.png)<!-- -->
 
 PHAs are red, NEOs are yellow and all other asteroids are green.
 
@@ -206,7 +206,7 @@ ggplot(ast_df1, aes(x = a)) + geom_histogram(aes(y = ..count..), binwidth = 0.00
   labs (x = "semi-major axis (a) in AU", y = "objects per bin (0.005 AU)")
 ```
 
-![](README_figs/README-Kirkwood gaps-1.png)<!-- -->
+![](README_figs/README-Kirkwood_gaps-1.png)<!-- -->
 
 We find gaps, regions with less asteroids, at about 2.06, 2.5, 2.82, 2.95, 3.27 AU. These are the Kirkwood gaps, first noticed by Daniel Kirkwood in 1866. They have been depleted by mean-motion resonances (MMR) of Jupiter or Neptune (<https://en.wikipedia.org/wiki/Kirkwood_gap>). There are also resonances in the outer solar system, e.g. around 30 AU (https://en.wikipedia.org/wiki/Orbital_resonance).
 
@@ -215,7 +215,7 @@ ggplot(ast_df1, aes(x = a)) + geom_histogram(aes(y = ..count..), binwidth = 0.05
   labs (x = "semi-major axis (a) in AU", y = "objects per bin (0.05 AU)")
 ```
 
-![](README_figs/README-Outer gaps-1.png)<!-- -->
+![](README_figs/README-Outer_gaps-1.png)<!-- -->
 
 # 4. Inclination and asteroid families
 The next plot is inclination versus semi-major axis. There appear to be finger like shapes.
@@ -225,7 +225,7 @@ ggplot(data = ast_df1) + geom_point(mapping = aes(x = a, y = i), shape = ".", co
   xlim(c(0,6)) + ylim(c(0,40)) + labs (x = "semi-major axis (a) in AU", y = "inclination (i) in degrees")
 ```
 
-![](README_figs/README-inclination plot-1.png)<!-- -->
+![](README_figs/README-inclination_plot-1.png)<!-- -->
 
 Zooming in and adding the density of the distribution shows concentrations of asteroids.
 
@@ -237,7 +237,7 @@ ggplot(data = ast_df1) + stat_bin_2d(mapping = aes(x = a, y = i), bins = 150) +
         panel.background = element_rect(fill = "darkblue"))
 ```
 
-![](README_figs/README-heatmap binning-1.png)<!-- -->
+![](README_figs/README-heatmap_binning-1.png)<!-- -->
 
 We find concentrations of asteroids that share the same orbital elements. They are grouped into families (https://en.wikipedia.org/wiki/Asteroid_family#List_of_asteroid_families). A better plot can be made using proper orbital elements instead of osculating orbital elements. Proper elements are stable for several millions of years while osculating elements are only stable for shorter timescales. The AstDyS-2 website has data for asterods, osculating and proper elements (https://newton.spacedys.com/astdys/index.php?pc=0). Using this data can be used for a new plot.
 
@@ -260,7 +260,7 @@ ggplot(spec_type, aes(spec_B, n)) + geom_col(color = "blue", fill = "blue") +
   labs (x = "SMASS II spectral type", y = "number of asteroids")
 ```
 
-![](README_figs/README-spectral type plot-1.png)<!-- -->
+![](README_figs/README-spectral_type_plot-1.png)<!-- -->
 
 In this sample the silicaceous (stony) objects dominate.
 
