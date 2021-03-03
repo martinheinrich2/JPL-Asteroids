@@ -1,14 +1,3 @@
----
-title: "Asteroids from the JPL Asteroid Database"
-output:
-  html_document: 
-    toc: yes
-    keep_md: yes
-  html_notebook:
-    toc: yes
----
-
-
 # 1. The JPL Small-Body Database
 The JPL Small-Body Database is about small Solar System objects. It contains data of all known asteroids and several comets. 
 You can learn a bit by downloading and analysing the database. I used R (https://www.r-project.org) to filter and plot the data. Basic data and orbital elements of Asteroids can be found at the **JPL Small-Body Database Engine** (https://ssd.jpl.nasa.gov/sbdb_query.cgi#x).
