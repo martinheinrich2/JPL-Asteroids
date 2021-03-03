@@ -68,6 +68,7 @@ ggplot(data = ast_df) + geom_point(mapping = aes(x = a, y = e), shape = ".", col
 ```
 
 ![](README_figs/README-log-scale plot1-1.png)<!-- -->
+
 The x-axis is logarithmic in astronomical units (AU).
 Next we look at the range of 0 - 6 AU semi-major axis by applying a limit with the **xlim()** option.
 
@@ -88,6 +89,7 @@ ggplot(data = ast_df) + geom_point(mapping = aes(x = a, y = e), shape = ".", col
 ```
 
 ![](README_figs/README-plot artefacts-1.png)<!-- -->
+
 This seems to prove the idea. Next we filter out potentially unreliable orbital parameters by removing all objects with less than 20 observations and making a new plot.
 
 
@@ -205,6 +207,7 @@ ggplot(ast_df1, aes(x = a)) + geom_histogram(aes(y = ..count..), binwidth = 0.00
 ```
 
 ![](README_figs/README-Kirkwood gaps-1.png)<!-- -->
+
 We find gaps, regions with less asteroids, at about 2.06, 2.5, 2.82, 2.95, 3.27 AU. These are the Kirkwood gaps, first noticed by Daniel Kirkwood in 1866. They have been depleted by mean-motion resonances (MMR) of Jupiter or Neptune (<https://en.wikipedia.org/wiki/Kirkwood_gap>). There are also resonances in the outer solar system, e.g. around 30 AU (https://en.wikipedia.org/wiki/Orbital_resonance).
 
 ```r
@@ -258,6 +261,7 @@ ggplot(spec_type, aes(spec_B, n)) + geom_col(color = "blue", fill = "blue") +
 ```
 
 ![](README_figs/README-spectral type plot-1.png)<!-- -->
+
 In this sample the silicaceous (stony) objects dominate.
 
 # Appendix{-}
